@@ -1,0 +1,17 @@
+{
+  "info": {
+    "name": "Smart Study Group Finder API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {"name": "Register", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "url": "{{baseUrl}}/api/auth/register", "body": {"mode": "raw", "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"Password123!\",\n  \"college\": \"State University\"\n}"}}},
+    {"name": "Login", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "url": "{{baseUrl}}/api/auth/login", "body": {"mode": "raw", "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"Password123!\"\n}"}}},
+    {"name": "Get Profile", "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{token}}"}], "url": "{{baseUrl}}/api/users/profile"}},
+    {"name": "Get Groups", "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{token}}"}], "url": "{{baseUrl}}/api/groups"}},
+    {"name": "Send Message", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}, {"key": "Authorization", "value": "Bearer {{token}}"}], "url": "{{baseUrl}}/api/messages", "body": {"mode": "raw", "raw": "{\n  \"groupId\": 1,\n  \"message\": \"Hey team!\"\n}"}}}
+  ],
+  "variable": [
+    {"key": "baseUrl", "value": "http://localhost:5000"},
+    {"key": "token", "value": ""}
+  ]
+}
